@@ -29,11 +29,13 @@ app.post("/create", (req, res) => {
   const municipality = req.body.municipality;
   const town = req.body.town;
   const completeadd = req.body.completeadd;
+  const username = req.body.username;
+  const password = req.body.password;
 
 
   db.query(
-    "INSERT INTO students (lastname, firstname, email, idnum, institution, department, mobile, municipality, town, completeadd) VALUES (?,?,?,?,?,?,?,?,?,?)",
-    [lastname, firstname, email, idnum, institution, department, mobile, municipality, town, completeadd],
+    "INSERT INTO students (lastname, firstname, email, idnum, institution, department, mobile, municipality, town, completeadd, username, password) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
+    [lastname, firstname, email, idnum, institution, department, mobile, municipality, town, completeadd, username, password],
     (err, result) => {
       if (err) {
         console.log(err);
@@ -54,21 +56,42 @@ app.get("/students", (req, res) => {
   });
 });
 
-// app.put("/update", (req, res) => {
-//   const id = req.body.id;
-//   const wage = req.body.wage;
+// app.post("/register", (req, res) =>{
+//   const username = req.body.username;
+//   const password = req.body.password;
 //   db.query(
-//     "UPDATE employees SET wage = ? WHERE id = ?",
-//     [wage, id],
-//     (err, result) => {
-//       if (err) {
-//         console.log(err);
-//       } else {
-//         res.send(result);
-//       }
+//     "INSERT INTO students (username, password) VALUES (?,?) ",
+//     [username, password],
+//     (err, result) =>{
+//       console.log(err);
 //     }
-//   );
-// });
+//   )
+// })
+
+app.post("/login", (req, res) => {
+  const username = req.body.username;
+  const password = req.body.password;
+
+  db.query(
+    "SELECT * FROM students WHERE username = ? AND password = ?",
+    [username, password],
+    (err, result) => {
+      if (err){
+        res.send({err: err})
+      }
+
+
+
+        if (result.length > 0) {
+          res.send(result)
+        }else {
+          res.send({message: "wrong username/password combination"})
+        }
+      }
+    
+  )
+})
+
 
 app.delete("/delete/:id", (req, res) => {
   const id = req.params.id;

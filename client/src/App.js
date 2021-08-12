@@ -221,6 +221,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Services from "./components/pages/Services";
 import Products from "./components/pages/Products";
 import SignUp from "./components/pages/SignUp";
+import Helpdesk  from "./components/pages/Helpdesk";
+
+
 import Accessing from "./components/pages/Accessing";
 import Enroll from "./components/pages/Enroll";
 import Password from "./components/pages/Password";
@@ -241,6 +244,9 @@ function App() {
           <Route path="/services" component={Services} />
           <Route path="/products" component={Products} />
           <Route path="/sign-up" component={SignUp} />
+          <Route path="/helpdesk" component={Helpdesk}/>
+
+
           <Route path="/accessing" component={Accessing} />
           <Route path="/enrol" component={Enroll} />
           <Route path="/resetpassword" component={Password} />

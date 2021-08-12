@@ -1,31 +1,4 @@
-// import React from 'react'
-// import "../App.css"
-// import logo from './QSU.png'
 
-// function Navbar() {
-//     return(
-//         <div className="Navbar">
-//             <div className="left">
-//                 <img
-//                 className="img"
-//                 src={logo}
-//                 alt="qsu"
-//                 />
-                
-//             </div>
-//             <div className="right" >
-//             <div className="links">
-//                     <a href="Home">Home</a>
-//                     <a href="Earaltutorial">Student</a>
-//                     <a href="earaltutorial">Faculty</a>
-//                     <a href="registration">Registration</a>
-//                 </div>
-//             </div>
-//         </div>
-//     )
-// }
-
-// export default Navbar;
 import React, { useState, useEffect } from "react";
 import { Button } from "./Button";
 import { Link } from "react-router-dom";
@@ -70,6 +43,14 @@ function Navbar() {
                 Home
               </Link>
             </li>
+            <li>
+              <Link
+                to="/helpdesk"
+                className="nav-links-mobile"
+                onClick={closeMobileMenu}>
+                Helpdesk
+              </Link>
+            </li>
             <li className="nav-item">
               <Link
                 to="/services"
@@ -81,23 +62,15 @@ function Navbar() {
             </li>
             <li className="nav-item">
               <Link
-                to="/products"
+                to="/helpdesk"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                Products
+                Helpdesk
               </Link>
             </li>
 
-            <li>
-              <Link
-                to="/sign-up"
-                className="nav-links-mobile"
-                onClick={closeMobileMenu}
-              >
-                Register
-              </Link>
-            </li>
+
           </ul>
           {button && <Button buttonStyle="btn--outline">Login</Button>}
         </div>
