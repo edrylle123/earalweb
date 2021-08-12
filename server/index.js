@@ -4,6 +4,7 @@ const app = express();
 const mysql = require("mysql");
 const cors = require("cors");
 // const fileUpload = require('express-fileupload');
+const PORT = 3001;
 
 
 app.use(cors());
@@ -81,6 +82,6 @@ app.delete("/delete/:id", (req, res) => {
 });
 
 
-app.listen(3001, () => {
+app.listen(process.env.PORT || PORT, () => {
   console.log("Yey, your server is running on port 3001");
 });
