@@ -30,7 +30,7 @@ function Navbar() {
       <nav className="navbar">
         <div className="navbar-container">
           <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-            <p>QSU e-Aral</p>
+            <p>Arangkada Nagtipunan</p>
             {/* <i class="fa-brands fa-medapps"></i> */}
             {/* <i class="fab fa-typo3" /> */}
           </Link>
@@ -43,7 +43,7 @@ function Navbar() {
                 Home
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link
                 to="/helpdesk"
                 className="nav-links-mobile"
@@ -68,7 +68,7 @@ function Navbar() {
               >
                 Helpdesk
               </Link>
-            </li>
+            </li> */}
 
 
           </ul>
